@@ -19,10 +19,51 @@
 // Если ответ нет, показать alert с текстом Нам очень жаль, приходите еще!
 // Если мест нигде нет, показать alert с сообщением Извините, столько мест нет ни в одной группе!
 
-let sharmSitesNumber = 15;
-let hurgadaSitesNumber = 25;
-let tabaSitesNumber = 6;
+let sharmFreePlaces = 15;
+let hurgadaFreePlaces = 25;
+let tabaFreePlaces = 6;
+const inputAsk = 'Пожалуйста введите количество мест для брони!';
+const inputWrong = 'Ошибка ввода!';
+const inputCancel = 'Нам очень жаль, приходите еще!';
+const responsNegative ='Извините, столько мест нет ни в одной группе!';
+let userInput = prompt(inputAsk);
 
-const userInputSitesNumber = prompt('Пожалуйста введите количество мест для брони!', '');
-alert('Количество забронированных мест :' + Number(userInputSitesNumber));
 
+if (userInput === null) {
+    alert(inputCancel);
+} else if (Number(userInput) && userInput >= 0 && userInput % 1 === 0) {
+    if (userInput <= sharmFreePlaces) {
+        let askSharm = confirm('В групе Шарм есть свободные места для Вас. Вы согласны забронировать места?');
+        if (askSharm === true) {
+            alert('Приятного путешествия в группе Шарм!');
+        } else if (askSharm === false) {
+            alert(inputCancel);
+        }
+    }
+    
+ else if (userInput <= hurgadaFreePlaces) {
+    let askHurgada = confirm('В групе Хургада есть свободные места для Вас. Вы согласны забронировать места?');
+    if (askHurgada === true) {
+        alert('Приятного путешествия в группе Хургада!');
+    } else if (askHurgada === false) {
+        alert(inputCancel);
+    }
+ }
+ else if (userInput <= tabaFreePlaces) {
+    let askTaba = confirm('В групе Таба есть свободные места для Вас. Вы согласны забронировать места?');
+    if (askTaba === true) {
+        alert('Приятного путешествия в группе Таба!');
+    } else if (askTaba === false) {
+        alert(inputCancel);
+    }
+
+else {
+    alert(responsNegative);
+}
+ }
+
+ else {
+    alert(inputWrong);
+}
+ 
+    }
