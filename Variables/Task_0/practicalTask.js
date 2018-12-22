@@ -25,45 +25,42 @@ let tabaFreePlaces = 6;
 const inputAsk = 'Пожалуйста введите количество мест для брони!';
 const inputWrong = 'Ошибка ввода!';
 const inputCancel = 'Нам очень жаль, приходите еще!';
-const responsNegative ='Извините, столько мест нет ни в одной группе!';
+const responsNegative = 'Извините, столько мест нет ни в одной группе!';
 let userInput = prompt(inputAsk);
 
-
 if (userInput === null) {
-    alert(inputCancel);
+  alert(inputCancel);
 } else if (Number(userInput) && userInput >= 0 && userInput % 1 === 0) {
-    if (userInput <= sharmFreePlaces) {
-        let askSharm = confirm('В групе Шарм есть свободные места для Вас. Вы согласны забронировать места?');
-        if (askSharm === true) {
-            alert('Приятного путешествия в группе Шарм!');
-        } else if (askSharm === false) {
-            alert(inputCancel);
+  if (userInput <= sharmFreePlaces) {
+    let askSharm = confirm(
+      'В групе Шарм есть свободные места для Вас. Вы согласны забронировать места?',
+    );
+    if (askSharm === true) {
+      alert('Приятного путешествия в группе Шарм!');
+    } else {
+      if (userInput <= hurgadaFreePlaces) {
+        let askHurgada = confirm(
+          'В групе Хургада есть свободные места для Вас. Вы согласны забронировать места?',
+        );
+        if (askHurgada === true) {
+          alert('Приятного путешествия в группе Хургада!');
+        } else {
+          if (userInput <= tabaFreePlaces) {
+            let askTaba = confirm(
+              'В групе Таба есть свободные места для Вас. Вы согласны забронировать места?',
+            );
+            if (askTaba === true) {
+              alert('Приятного путешествия в группе Таба!');
+            } else {
+              alert(inputCancel);
+            }
+          }
         }
+      }
     }
-    
- else if (userInput <= hurgadaFreePlaces) {
-    let askHurgada = confirm('В групе Хургада есть свободные места для Вас. Вы согласны забронировать места?');
-    if (askHurgada === true) {
-        alert('Приятного путешествия в группе Хургада!');
-    } else if (askHurgada === false) {
-        alert(inputCancel);
-    }
- }
- else if (userInput <= tabaFreePlaces) {
-    let askTaba = confirm('В групе Таба есть свободные места для Вас. Вы согласны забронировать места?');
-    if (askTaba === true) {
-        alert('Приятного путешествия в группе Таба!');
-    } else if (askTaba === false) {
-        alert(inputCancel);
-    }
-
-else {
+  } else {
     alert(responsNegative);
+  }
+} else {
+  alert(inputWrong);
 }
- }
-
- else {
-    alert(inputWrong);
-}
- 
-    }
