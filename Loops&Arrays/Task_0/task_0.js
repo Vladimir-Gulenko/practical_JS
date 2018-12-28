@@ -16,3 +16,23 @@ let attempts = 3;
 const paswAsk = ' Please, enter your password ';
 const userInput = prompt(paswAsk);
 
+const isPasswordUnique = (password, passwords) => {
+    if (passwords.includes(password)) {
+        return false;
+    }
+    return true;
+};
+
+const attemptsDecrease = (attempts) => {
+    if (isPasswordUnique === false) {
+        let attempts = attempts - 1;
+    }
+    console.log(attempts);
+};
+do {
+
+
+} while (attempts === 0);
+
+isPasswordUnique();
+attemptsDecrease();
