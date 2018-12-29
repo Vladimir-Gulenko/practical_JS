@@ -11,8 +11,8 @@ let num;
 let newArr;
 do {
   const num = prompt('Введите чисо!');
-  const newArr = newArr.push(num);
+  const Arr = newArr.push(num);
 } while (num !== null);
 
 
-console.log(newArr);
+console.log(Arr);
