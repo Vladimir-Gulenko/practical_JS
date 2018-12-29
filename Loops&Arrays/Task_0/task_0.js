@@ -14,25 +14,30 @@
 const passwords = ['qwerty', '111qwe', '123123', 'r4nd0mp4zzw0rd'];
 let attempts = 3;
 const paswAsk = ' Please, enter your password ';
-const userInput = prompt(paswAsk);
+const greet = 'Добро пожаловать!';
+let currentInput;
+let goodGess = false;
 
-const isPasswordUnique = (password, passwords) => {
-    if (passwords.includes(password)) {
-        return false;
-    }
-    return true;
-};
 
-const attemptsDecrease = (attempts) => {
-    if (isPasswordUnique === false) {
-        let attempts = attempts - 1;
-    }
-    console.log(attempts);
-};
+
 do {
-
-
-} while (attempts === 0);
-
-isPasswordUnique();
-attemptsDecrease();
+    currentInput = prompt(paswAsk);
+    if (currentInput === null) {
+        break;
+    }
+    attempts -= 1;
+    for (let psw of passwords) {
+        if (currentInput === psw) {
+            alert("Добро пожаловать!");
+            goodGess = true;
+            break;
+        }
+    }
+    if (!goodGess) {
+        if (attempts > 0) {
+            alert(`Неверный пароль. У Вас осталось ${attempts} попыток`);
+        } else {
+            alert("У вас закончились попытки, аккаунт заблокирован!");
+        }
+    }
+} while ((attempts > 0) && (!goodGess));
