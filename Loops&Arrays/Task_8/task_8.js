@@ -7,12 +7,7 @@
 //   - После того как ввод был завершен, если массив не пустой,
 //     скрипт выводит сумму всех значений массива: "Сумма: <сумма всех значений в массиве>"
 
-let num;
-let newArr;
-do {
-  const num = prompt('Введите чисо!');
-  const Arr = newArr.push(num);
-} while (num !== null);
+let inputNumber;
+let newArr = [];
 
 
-console.log(Arr);
