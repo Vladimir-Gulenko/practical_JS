@@ -1,32 +1,43 @@
-'use strict'
+'use strict';
 
-/*
-  Напишите функцию filterFromArray(arr), которая 
-  объявляет 1 параметр, исходный массив arr.
-  
-  При вызове функции, первым аргументом всегда будет массив чисел,
-  за которым следуют один или несколько аргументов, тоже чисел. 
-  
-  Функция возвращает новый массив, который содержит только 
-  те элементы исходного массива, которые не совпадают 
-  ни с одним из числовых аргументов.
-*/
+  // Напишите скрипт, который, для объекта user, последовательно: 
 
-const filterFromArray = function (arr) {
-  const newArray = arguments[0];
-  for (let i = 1; i < arguments.length; i += 1) {
-    if (newArray.includes(arguments[i])) {
-      newArray.splice(newArray.indexOf(arguments[i]), 1);
-    }
-  }
-  return newArray;
+const user = {
+  name: 'Mango',
+  age: 20,
+  hobby: 'html',
+  premium: true,
 };
 
-// Вызовы функции для проверки
-console.log(
-  filterFromArray([1, 2, 3, 4, 5], 2, 4)
-); // [1, 3, 5]
+// - добавляет поле mood со значением 'happy'
+user.mood = 'happy';
 
-console.log(
-  filterFromArray([12, 4, 3, 8, 17], 3, 29, 18, 4)
-); // [12, 8, 17]
+//  - заменяет значение hobby на 'javascript'
+user.hobby = 'javascript';
+
+//  - удаляет свойство premium
+delete user.premium;
+
+console.log(user);
+
+//  - выводит содержимое объекта user в формате ключ:значение 
+//  используя цикл for...in
+for (let key in user) {
+  console.log(`Key : ${key} `);
+};
+
+//  - выводит содержимое объекта user в формате ключ:значение 
+//       используя Object.keys и for...of
+let keys = Object.keys(user);
+for (const key of keys) {
+  console.log('Value: ', user[key]);
+};
+  //  - выводит содержимое объекта user в формате ключ:значение 
+  //       используя Object.entries и for...of
+  let entries = Object.entries(user);
+  for (const entry of entries) {
+    const key = entry[0];
+    const value = entry[1];
+
+    console.log(`${key}: ${value}`);
+  };
